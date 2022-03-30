@@ -1,9 +1,4 @@
-import 'dart:convert';
-
-import 'package:flutter_assessment/models/contact_model.dart';
 import 'package:flutter_assessment/cores/constant.dart';
-import 'package:flutter_assessment/screens/home_screen.dart';
-import 'package:flutter_assessment/services/database.dart';
 import 'package:http/http.dart';
 
 abstract class ContactRepositoryInterface {

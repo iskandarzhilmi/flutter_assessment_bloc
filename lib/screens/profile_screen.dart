@@ -18,14 +18,14 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> {
   Contact contact;
   _ProfileScreenState(this.contact);
-  bool favourite = false;
+  bool isFavourite = false;
 
   @override
   void initState() {
     super.initState();
 
     if (contact.favourite.contains('true')) {
-      favourite = true;
+      isFavourite = true;
     }
   }
 
@@ -71,10 +71,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
             InkWell(
               onTap: () {
                 setState(() {
-                  if (favourite) {
-                    favourite = false;
+                  if (isFavourite) {
+                    isFavourite = false;
                   } else {
-                    favourite = true;
+                    isFavourite = true;
                   }
 
                   DatabaseHelper().toggleFavourite(contact.id);
@@ -83,7 +83,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               child: CircleAvatar(
                 backgroundImage: NetworkImage(contact.avatar),
                 radius: 50.0,
-                child: favourite ? Icon(Icons.star) : Icon(Icons.star_border),
+                child: isFavourite ? Icon(Icons.star) : Icon(Icons.star_border),
               ),
             ),
             Text(contact.firstName + ' ' + contact.lastName),
